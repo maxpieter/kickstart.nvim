@@ -138,8 +138,6 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
--- useless comment
-
 -- Keep signcolumn on by default
 vim.o.signcolumn = 'yes'
 
