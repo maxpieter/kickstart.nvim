@@ -12,6 +12,8 @@ return {
   lazy = false,
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    -- you can keep this, but the mapping below in `config` is the guaranteed one
+    { '<leader>e', ':Neotree toggle<CR>', desc = 'NeoTree toggle', silent = true },
   },
   opts = {
     filesystem = {
@@ -22,4 +24,13 @@ return {
       },
     },
   },
+
+  config = function(_, opts)
+    require('neo-tree').setup(opts)
+
+    -- Set the keymap after plugin is loaded
+    vim.keymap.set('n', '<leader>e', function()
+      vim.cmd 'Neotree toggle'
+    end, { desc = 'NeoTree toggle', silent = true })
+  end,
 }
